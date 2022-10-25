@@ -10,8 +10,7 @@ class BankAccount:
         self.balance = balance
         self.name = name
 
-    def deposit(self, amount):
-        self.balance += amount
+    def printTimeTransaction(self, amount):
         # recording the time of transaction for future implementation of reporting feature
         now = datetime.now()
         print("now =", now)
@@ -19,17 +18,14 @@ class BankAccount:
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
         print("Transaction:", amount, "-", dt_string)	
 
-
+    def deposit(self, amount):
+        self.balance += amount
+        self.printTimeTransaction(amount)
 
     def withdraw(self, amount):
         if self.balance >= amount:
             self.balance -= amount
-            # recording the time of transaction for future implementation of reporting feature
-            now = datetime.now()
-            print("now =", now)
-            # dd/mm/YY H:M:S
-            dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-            print("Transaction:", amount, "-", dt_string)
+            self.printTimeTransaction(amount)
 
         #TODO: Write code to handle the insufficient balance case here
         else:
