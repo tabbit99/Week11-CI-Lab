@@ -32,6 +32,8 @@ class BankAccount:
             print("Transaction:", amount, "-", dt_string)
 
         #TODO: Write code to handle the insufficient balance case here
+        else:
+            raise Exception("Insufficient balance!")
 
     def interest(self, rate_computer):
         return rate_computer.get_rate() * self.balance
